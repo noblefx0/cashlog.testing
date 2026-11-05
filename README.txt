@@ -24,3 +24,11 @@ Upload the contents of this folder to the root of your GitHub Pages test reposit
 NOTES
 - Firebase configuration and existing collection paths are preserved from V4.
 - No live Firebase test was performed during build. Test sign-up, verification, Google login, password linking, and records using a separate test account before public deployment.
+
+
+V5 STARTUP FIX
+--------------
+The main page now loads the five screen HTML fragments first, then starts js/app.js.
+Keep index.html, assets/, css/, and js/ together in the same publishing folder.
+Run with Live Server or GitHub Pages; do not open index.html as a file:// URL.
+If a screen file fails to load, the splash screen now closes and displays a startup error.

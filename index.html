@@ -76,5 +76,40 @@
         <div class="foot">Cash Log · Your records are private to your signed-in account.</div>
     </div>
     <div id="toast" role="status" aria-live="polite"></div>
-    
+
+    <script type="module">
+        // Load the screen markup before starting the app module. The app binds
+        // event handlers to elements inside these fragments during startup.
+        const screenFiles = {
+            homeScreen: './js/screens/home.html',
+            incomeScreen: './js/screens/income.html',
+            transferScreen: './js/screens/transfer.html',
+            removedScreen: './js/screens/removed.html',
+            historyScreen: './js/screens/history.html'
+        };
+
+        try {
+            await Promise.all(Object.entries(screenFiles).map(async ([screenId, url]) => {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`Could not load ${url} (HTTP ${response.status})`);
+                const mount = document.querySelector(`[data-screen-mount="${screenId}"]`);
+                if (!mount) throw new Error(`Missing screen mount: ${screenId}`);
+                mount.innerHTML = await response.text();
+            }));
+            await import('./js/app.js');
+        } catch (error) {
+            console.error('Cashlog startup failed:', error);
+            const splash = document.getElementById('splashScreen');
+            if (splash) splash.classList.add('is-hidden');
+            const login = document.getElementById('loginCard');
+            if (login) {
+                login.classList.remove('hidden');
+                const message = document.createElement('p');
+                message.className = 'status error';
+                message.textContent = `Cashlog could not start: ${error.message}. Check that the assets, css and js folders are beside index.html.`;
+                login.appendChild(message);
+            }
+        }
+    </script>
+</body>
 </html>
