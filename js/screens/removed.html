@@ -1,0 +1,27 @@
+<section id="removedScreen" class="screen">
+                <h2 class="screen-heading">Record money removed</h2>
+                <section class="card">
+                <h2 id="expenseFormTitle">Record money removed</h2>
+                <p class="muted small">Record money taken out. Choose whether it came from cash or bank. If the recorded balance is too low, you can cancel or confirm the removal anyway. Only
+                    today's entries can be edited or deleted.</p>
+                <form id="expenseForm">
+                    <div class="formgrid">
+                        <div class="field"><label for="expenseDate">Date</label><input id="expenseDate" type="date"
+                                required></div>
+                        <div class="field"><label for="expenseAmount">Amount removed (₦)</label><input
+                                id="expenseAmount" type="number" min="1" step="1" inputmode="numeric"
+                                placeholder="e.g. 1000" required></div>
+                    </div>
+                    <div class="field"><label for="expenseSource">Money removed from</label><select id="expenseSource"
+                            required>
+                            <option value="cash">Cash</option>
+                            <option value="transfer">Transfer</option>
+                        </select></div>
+                    <div class="field"><label for="expenseNote">Reason (optional)</label><input id="expenseNote"
+                            maxlength="200" placeholder="e.g. personal withdrawal or business expense"></div>
+                    <div class="row"><button id="saveExpenseBtn" class="btn" type="submit">Save money
+                            removed</button><button id="cancelExpenseEditBtn" class="btn secondary hidden"
+                            type="button">Cancel edit</button></div>
+                </form>
+            </section>
+            </section>

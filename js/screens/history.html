@@ -1,0 +1,85 @@
+<section id="historyScreen" class="screen">
+                <h2 class="screen-heading">Records & monthly report</h2>
+                <section class="card">
+                <div class="row" style="justify-content:space-between">
+                    <h2 style="margin:0">Monthly calculation</h2>
+                    <div style="max-width:210px"><label for="monthInput" class="small">Choose month</label><input
+                            id="monthInput" type="month"></div>
+                </div>
+                <p class="muted small">Click Calculate to total income and money removed from the first day of the
+                    selected month through today (or the full month if it has ended).</p><button id="calculateMonthBtn"
+                    class="btn" type="button" style="margin-top:4px">Calculate month</button>
+                <div class="grid" style="margin-top:15px">
+                    <div class="stat">
+                        <div class="label">Cash received</div>
+                        <div id="monthCashStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Bank transfers received</div>
+                        <div id="monthTransferStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Total income</div>
+                        <div id="monthIncomeStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Cash removed</div>
+                        <div id="monthCashRemovedStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Transfer removed</div>
+                        <div id="monthTransferRemovedStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Older removals without a source</div>
+                        <div id="monthUnassignedRemovedStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Total money removed</div>
+                        <div id="monthRemovedStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Cash remaining</div>
+                        <div id="monthCashRemainingStat" class="value">—</div>
+                    </div>
+                    <div class="stat">
+                        <div class="label">Transfer remaining</div>
+                        <div id="monthTransferRemainingStat" class="value">—</div>
+                    </div>
+                    <div class="stat total">
+                        <div class="label">Total remaining (net change)</div>
+                        <div id="monthNetStat" class="value">—</div>
+                    </div>
+                </div>
+                <div id="monthStatus" class="muted small" style="margin-top:10px">Choose a month and click Calculate
+                    month. Older money-removal entries without a source are included in total removed, but not assigned
+                    to cash or transfer.</div>
+            </section><section class="card">
+                <div class="row" style="justify-content:space-between;align-items:center">
+                    <h2 style="margin:0">Transaction history</h2><span id="recordCount" class="pill">0 entries</span>
+                </div>
+                <div class="row" style="margin:12px 0">
+                    <div><label for="historyMonth" class="small">Filter by month (optional)</label><input
+                            id="historyMonth" type="month"></div>
+                    <div style="align-self:end"><button id="clearHistoryFilter" class="btn secondary" type="button">Show
+                            all dates</button></div>
+                </div>
+                <div class="tablewrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Cash</th>
+                                <th>Bank</th>
+                                <th>Amount</th>
+                                <th>Note / reason</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recordsBody"></tbody>
+                    </table>
+                </div>
+                <div id="emptyRecords" class="empty">No entries yet. Save your first transaction above.</div>
+            </section>
+            </section>

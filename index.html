@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101827">
+    <title>Cash Log</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="splashScreen"><div class="splash-content"><img class="splash-wallet" src="assets/wallet-logo.svg" alt=""><div class="splash-name">CASHLOG</div></div></div>
+    <div id="screenTransition" aria-hidden="true"><div class="splash-content"><img class="splash-wallet" src="assets/wallet-logo.svg" alt=""><div class="splash-name">CASHLOG</div></div></div>
+
+    <div class="wrap">
+        <header class="top">
+            <div class="brand">
+                <div class="mark"><img src="assets/wallet-logo.svg" alt="Cashlog logo"></div>
+                <div>
+                    <h1>Cash Log</h1>
+                    <p>Your personal money tracker.</p>
+                </div>
+            </div>
+        </header>
+        <section id="verifyCard" class="card hidden">
+            <h2>Verify your email</h2>
+            <p class="muted">We sent a verification link to <strong id="verifyEmail"></strong>. Open that email and click the link before accessing your Cashlog records.</p>
+            <div class="auth-actions"><button id="checkVerificationBtn" class="btn" type="button">I've verified my email</button><button id="resendVerificationBtn" class="btn secondary" type="button">Resend email</button></div>
+            <p class="small muted">If you don't see it, check your spam or junk folder.</p>
+        </section>
+        <section id="loginCard" class="card">
+            <h2 id="authTitle">Welcome to Cash Log</h2>
+            <p class="muted">Sign in to access your personal records, or create a free account.</p>
+            <form id="emailAuthForm">
+                <div class="field auth-field" id="nameField"><label for="authName">Your name</label><input id="authName" type="text" maxlength="60" autocomplete="name" placeholder="Enter your name"></div>
+                <div class="field auth-field"><label for="authEmail">Email address</label><input id="authEmail" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+                <div class="field auth-field"><label for="authPassword">Password</label><input id="authPassword" type="password" minlength="6" autocomplete="current-password" placeholder="At least 6 characters" required></div>
+                <div class="row" style="justify-content:space-between"><label style="display:flex;align-items:center;gap:8px;font-weight:500"><input id="showPassword" type="checkbox" style="width:auto"> Show password</label><button id="forgotPasswordBtn" class="auth-link" type="button">Forgot password?</button></div>
+                <div class="auth-actions"><button id="emailSubmitBtn" class="btn" type="submit">Log in</button></div>
+            </form>
+            <button id="authModeBtn" class="auth-link" type="button">New here? Create an account</button>
+            <p class="small muted" style="margin:8px 0 0">Already use Google? Sign in with Google first, then add a password from your account.</p>
+            <div class="auth-divider">OR</div>
+            <button id="signInBtn" class="btn secondary" style="width:100%" type="button">Continue with Google</button>
+            <div id="loginStatus" class="status"> </div>
+        </section>
+        <main id="app" class="hidden">
+            <div class="app-header">
+                <div><div class="small muted">Welcome back</div><h2 id="displayName" style="margin:2px 0 0">Your Cash Log</h2></div>
+                <div id="userArea" class="row" style="flex:0 1 auto"><span id="userEmail" class="small muted"></span><button id="accountPasswordBtn" class="btn secondary hidden" type="button">Set up password</button><button id="signOutBtn" class="btn secondary">Sign out</button></div>
+            </div>
+            <section id="accountPasswordPanel" class="card hidden" style="margin:12px 0">
+                <h3 style="margin-top:0">Add a password to this account</h3>
+                <p class="small muted">This links email/password sign-in to your current Google account. Your Firebase account and existing records stay the same.</p>
+                <form id="linkPasswordForm">
+                    <div class="field auth-field"><label for="linkPassword">New password</label><input id="linkPassword" type="password" minlength="6" autocomplete="new-password" placeholder="At least 6 characters" required></div>
+                    <div class="field auth-field"><label for="linkPasswordConfirm">Confirm password</label><input id="linkPasswordConfirm" type="password" minlength="6" autocomplete="new-password" placeholder="Enter the same password again" required></div>
+                    <label style="display:flex;align-items:center;gap:8px;font-weight:500"><input id="showLinkPassword" type="checkbox" style="width:auto"> Show passwords</label>
+                    <div class="auth-actions"><button id="linkPasswordSubmit" class="btn" type="submit">Save password</button><button id="cancelLinkPassword" class="btn secondary" type="button">Cancel</button></div>
+                </form>
+            </section>
+            <div id="mainStatus" class="status">Loading your records…</div>
+            <div data-screen-mount="homeScreen"></div>
+            <div data-screen-mount="incomeScreen"></div>
+            <div data-screen-mount="transferScreen"></div>
+            <div data-screen-mount="removedScreen"></div>
+            <div data-screen-mount="historyScreen"></div>
+            <nav class="bottom-nav" aria-label="Main navigation">
+                <button class="nav-btn active" type="button" data-screen="homeScreen"><span class="nav-icon">⌂</span><span>Home</span></button>
+                <button class="nav-btn" type="button" data-screen="incomeScreen"><span class="nav-icon">＋</span><span>Income</span></button>
+                <button class="nav-btn" type="button" data-screen="transferScreen"><span class="nav-icon">⇄</span><span>Transfer</span></button>
+                <button class="nav-btn" type="button" data-screen="removedScreen"><span class="nav-icon">↗</span><span>Removed</span></button>
+                <button class="nav-btn" type="button" data-screen="historyScreen"><span class="nav-icon">▤</span><span>History</span></button>
+            </nav>
+        </main>
+        <div class="foot">Cash Log · Your records are private to your signed-in account.</div>
+    </div>
+    <div id="toast" role="status" aria-live="polite"></div>
+    
+</html>

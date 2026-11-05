@@ -1,0 +1,16 @@
+<section id="transferScreen" class="screen">
+                <h2 class="screen-heading">Move money</h2>
+                            <section class="card">
+                <h2>Transfer between cash and bank</h2>
+                <p class="muted small">Move your existing money between cash and bank. Internal transfers do not count as income or money removed.</p>
+                <form id="transferForm">
+                    <div class="formgrid">
+                        <div class="field"><label for="transferDate">Date</label><input id="transferDate" type="date" required></div>
+                        <div class="field"><label for="internalTransferAmount">Amount (₦)</label><input id="internalTransferAmount" type="number" min="1" step="1" inputmode="numeric" placeholder="e.g. 10000" required></div>
+                    </div>
+                    <div class="field"><label for="transferDirection">Transfer direction</label><select id="transferDirection" required><option value="cashToBank">Cash → Bank</option><option value="bankToCash">Bank → Cash</option></select></div>
+                    <div class="field"><label for="internalTransferNote">Note (optional)</label><input id="internalTransferNote" maxlength="200" placeholder="e.g. Deposited cash into bank"></div>
+                    <div class="row"><button id="saveInternalTransferBtn" class="btn" type="submit">Save transfer</button></div>
+                </form>
+            </section>
+            </section>

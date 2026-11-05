@@ -1,0 +1,31 @@
+<section id="incomeScreen" class="screen">
+                <h2 class="screen-heading">Record income</h2>
+                <section class="card">
+                <h2 id="incomeFormTitle">Add income transaction</h2>
+                <p class="muted small">Each save is a separate transaction. Do not count transfers between your own
+                    accounts as income. Only today's entries can be edited or deleted.</p>
+                <form id="incomeForm">
+                    <div class="formgrid">
+                        <div class="field"><label for="incomeDate">Date</label><input id="incomeDate" type="date"
+                                required></div>
+                        <div class="field"><label for="incomeNote">Note (optional)</label><input id="incomeNote"
+                                maxlength="200" placeholder="e.g. evening customers"></div>
+                    </div>
+                    <div class="formgrid">
+                        <div class="field"><label for="cashInput">Cash received (₦)</label><input id="cashInput"
+                                type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 2500" required>
+                        </div>
+                        <div class="field"><label for="transferInput">Bank transfers received (₦)</label><input
+                                id="transferInput" type="number" min="0" step="1" inputmode="numeric"
+                                placeholder="e.g. 500" required></div>
+                    </div>
+                    <div class="stat total" style="margin:0 0 15px">
+                        <div class="label">Transaction total</div>
+                        <div id="incomePreview" class="value">₦0</div>
+                    </div>
+                    <div class="row"><button id="saveIncomeBtn" class="btn" type="submit">Save income</button><button
+                            id="cancelIncomeEditBtn" class="btn secondary hidden" type="button">Cancel edit</button>
+                    </div>
+                </form>
+            </section>
+            </section>
